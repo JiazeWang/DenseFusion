@@ -88,7 +88,7 @@ class PoseDataset(data.Dataset):
         self.symmetry_obj_idx = [7, 8]
 
     def __getitem__(self, index):
-        img = Image.open(self.list_rgb[index]).convert('L') 
+        img = Image.open(self.list_rgb[index]).convert('L').convert('RGB')
         ori_img = np.array(img)
         depth = np.array(Image.open(self.list_depth[index]))
         label = np.array(Image.open(self.list_label[index]))
